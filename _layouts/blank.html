@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>{{ page.title }}</title>
+<meta charset="{{ page.charset }}">
+<meta name="description" content="{{ page.description }}">
+<meta property="og:title" content="{{ page.site_name }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ page.url }}">
+<meta property="og:locale" content="{{ page.locale }}">
+<meta property="og:type" content="{{ page.type }}">
+<meta property="og:site_name" content="{{ page.site_name }}">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width">
+<body>
+
+{{ content }}
+
+<script type="text/javascript">
+function ready(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        fn();
+    } else {
+        document.addEventListener('DOMContentLoaded', fn);
+    }
+}
+
+function show_urls_on_hover() {
+    var links = document.getElementsByTagName("A");
+    for(i=0;i<links.length;i++)
+        /* show link url on hover (only if there isn't already some hover text ofc) */
+        links[i].title = (!links[i].title) ? links[i].href : links[i].title;
+}
+
+ready(function(){
+    show_urls_on_hover();
+});
+
+</script>
+</body>
+</html>
